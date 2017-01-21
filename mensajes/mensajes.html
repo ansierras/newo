@@ -1,0 +1,37 @@
+<div class="row perfil-cont">
+	<div class="col s12 miGris2">
+		<ul class="tabs">
+			<li class="tab col s3"><a href="#mensajes">MENSAJES</a></li>
+		</ul>
+	</div>
+	<div id="mensajes" class="col s12">
+		<div id="listaDestinos" class="row" style="height: 300px;">
+			<div class="col l4 miCafe" style="height: 100%">
+				<div class=" row myRow conversacionCont valign-wrapper white-text" ng-repeat="chatroom in chatrooms" ng-click="abrirChatroom(chatroom.chatroomId, $index)" ng-class="chatroomClases[$index]">
+					<div class="avatarCont col l4 valign">
+						<img ng-src="{{chatroom.avatar}}" class="circle">
+					</div>
+					<div class="col l8 valign">
+						<p>{{chatroom.nombre}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col l8 miGris1" style="height: 100%; position: relative;">
+				<div class="row scrollCont" style="padding-bottom: 85px;">
+					<div ng-repeat="mensaje in mensajes" ng-class="getClass(mensaje.de)" class="mensaje">
+						<p>{{mensaje.mensaje}}</p>
+					</div>
+				</div>
+				<div class="row myRow valign-wrapper miGris2 mensajeInput">
+				    <div class="input-field col l9 valign">
+				      <input id="mensaje" type="text" ng-model="nuevoMensaje" ng-keypress="myFunct($event)">
+				      <label for="mensaje">Escribe aquí tu mensaje</label>
+				    </div>
+				    <div class="col l3 valign">
+				      <a class="btn waves-effect waves-white" ng-click="enviarMensaje()"> Enviar</a>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

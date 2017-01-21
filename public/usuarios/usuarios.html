@@ -1,0 +1,42 @@
+<div class="row perfil-cont">
+	<div class="col s12 miGris2">
+		<ul class="tabs">
+			<li class="tab col s3"><a href="#usuarios">COMUNIDAD</a></li>
+		</ul>
+	</div>
+	<div class="row myRow miGris1">
+		<div class="input-field col l9 offset-l1">
+			<input placeholder="Buscar" type="text" ng-model="searchText">
+		</div>
+	</div>
+	<div id="usuarios" class="col s12 scrollCont">
+	  	<div class="row myRow miGris2 " style="padding-left: 10px; padding-right: 10px;">
+	  		<div class="col s12 m9 l9 offset-l1 usuarioCont z-depth-1" ng-repeat="usuario in listaUsuarios | filter:searchText" ng-click="goToUser(usuario.$id)">
+				<div class="row valign-wrapper" style="margin-bottom:10px; margin-top:10px">
+					<div class="col l3 valign-wrapper">
+						<img ng-src="{{usuario.fotoPerfilUrl}}" style="width:80px; height:80px" class="circle valign" ng-class="usuario.estatus" ng-show="usuario.fotoPerfilUrl">
+						<div id="generic" class="genericPic valign-wrapper center-align" ng-hide="usuario.fotoPerfilUrl">
+							<h2 class="center-align valign white-text" style="width: 100%">{{usuario.primerNombre.charAt(0).toUpperCase()}}{{usuario.apellidos.charAt(0).toUpperCase()}}</h2>
+						</div>
+					</div>
+					<div class="col l7">
+						<p>{{usuario.primerNombre}} {{usuario.segundoNombre}} {{usuario.apellidos}}</p>
+						<p>{{usuario.empresa}}</p>
+					</div>
+					<div class="col l2 valign iconoTipo">
+						<i ng-class="listaTipos[usuario.tipo]" class="fa-lg center-align"></i>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom: 0px">
+					<div class="progress" style="margin-bottom: 0px">
+					    <div class="determinate" style="width: {{usuario.compatRating}}%;"></div>
+					</div>
+				</div>
+			</div>
+	  	</div>
+	  	<div class="row">
+			<div style="margin-top:100px;">
+			</div>
+	  	</div>
+	</div>
+</div>

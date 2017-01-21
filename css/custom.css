@@ -1,0 +1,273 @@
+@font-face { font-family: sofia; src: url('../fonts/SofiaProLight.otf'); }
+body{
+  width: 100%;
+  height: 200%;
+  background-image: url("../assets/horizonte.jpeg");
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center; 
+  font-family: sofia;
+}
+.selected{
+  background-color: rgba(0,0,0,0.4);
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-left-color: white;
+  border-radius: 0px;
+}
+.myGenContainer{
+  margin-top: 40px;
+}
+.myGeneralContainer{
+  height: 90vh;
+  width: 90%;
+}
+.myCol{
+  height: 100vh;
+}
+
+.colIzq{
+  height: 90vh;
+  background-color: rgba(0,0,0,0.6)
+}
+
+.colCen{
+  height: 90vh;
+  background-color: #f5f5f5;
+}
+
+.colDer{
+  height: 90vh;
+  background-color: #f5f5f5;
+  border-left-color: #e8e8e8;
+  border-left: 1px;
+  border-left-style: solid;
+}
+
+.menuImage{
+  width: 100%;
+  margin-top: 20px;
+  /*border-style: solid;
+  border-color: #d0ff3e;
+  border-width:5px;*/
+}
+
+.myMenuButton{
+  width: 100%
+}
+.myLoginButton{
+  width: 50%;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.loginIzq{
+  height: 70vh;
+  background-color: rgba(0,0,0,0.4);
+  padding-left: 0px;
+}
+.loginDer{
+  height: 70vh;
+  background-color: #363435;
+  position: relative;
+  
+}
+.loginDer form{
+  margin-top: 70px;
+}
+
+.logoImgBttm{
+  position:absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.cover-img-cont{
+  width: 100%;
+  height: 180px;
+  background-color: #ebdcc7;
+  position: relative;
+}
+.cover-img-cont2{
+  width: 100%;
+  height: 360px;
+  background-color: #ebdcc7;
+  position: relative;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.perfil-cont{
+  height: 90vh;
+  overflow: hidden;
+}
+.scrollCont{
+  height: 90vh;
+  overflow-y: scroll;
+  overflow: auto;
+  overflow-x:hidden;
+}
+.perfil-img{
+  border-radius: 50%;
+  /*background-color: #363435;*/
+  top:50%;
+  position: absolute;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+}
+.perfil-img img{
+  width: 100%;
+  height: 100%;
+}
+.perfil-img2{
+  /*border-radius: 50%;*/
+  /*background-color: #363435;*/
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 70px;
+  /*
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 200px 200px;*/
+}
+.perfil-img-host{
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: -60px;
+}
+.profImg{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.noUserFoto{
+  width: 70%;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.genericPic{
+  width:70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: black;
+
+}
+.tipo{
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  position: absolute;
+  top:70%;
+  border-radius: 50%;
+}
+.tipo i{
+  margin-left: auto;
+  margin-right: auto;
+}
+.presentacion{
+  /*padding-top: 140px;*/
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  
+}
+.miGris1{
+  background-color: #e8e8e8;
+}
+.miGris2{
+  background-color: #f5f5f5;
+}
+.miCafe{
+  background-color: #363435;
+}
+.myRow{
+  margin-bottom: 0px;
+}
+.seguidores{
+  border-right-color: #e8e8e8;
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+.redSocialBoton{
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: white;
+
+}
+.usuarioCont{
+  background-color: white;
+  margin-bottom: 10px;
+}
+.iconoTipo{
+  border-left-color: #e8e8e8;
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+.activo{
+  border-style: solid;
+  border-width: 4px;
+  border-color:#d0ff3e;
+}
+.inactivo{
+  border-style: solid;
+  border-width: 4px;
+  border-color:#363435;
+}
+.formSeccion{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#mediaHere img{
+  width: 100%;
+  height: 100%;
+}
+.previewCoverCont img{
+  width: 100%;
+  height: 100%;
+}
+.conversacionCont{
+  height: 80px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+.avatarCont{
+  /*background-color: #363435;*/
+  padding: 0px;
+}
+.avatarCont img{
+  width:54px;
+  height: 54px;
+}
+.mensaje{
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 30px;
+
+}
+.mensaje p{
+  margin:0px;
+  padding: 4px;
+}
+.miMensaje{
+  
+
+}
+.suMensaje{
+
+}
+.mensajeInput{
+  position:absolute; 
+  bottom:0px;
+  width: 100%;
+}

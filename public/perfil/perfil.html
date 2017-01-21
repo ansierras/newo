@@ -1,0 +1,80 @@
+<div class="row perfil-cont">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3"><a href="#perfil">Perfil</a></li>
+      <li class="tab col s3"><a href="#blog">Blog</a></li>
+    </ul>
+  </div>
+  <div id="perfil" class="col s12 scrollCont">
+    <div class="row myRow" style="position:relative">
+      <a class="btn-floating waves-effect waves-light grey darken-4" ui-sref="home.editperfil" style="top:5%; position:absolute; left:90%;"><i class="material-icons">mode_edit</i></a>
+      <div class="cover-img-cont">
+        <img ng-src="{{user.fotoCoverUrl}}" ng-show="user.fotoCoverUrl" style="width:100%; max-height: 100%;">
+        <div class="col l4 offset-l4 perfil-img">
+          <img ng-src="{{user.fotoPerfilUrl}}" ng-show="user.fotoPerfilUrl" class="circle profImg" ng-class="user.estatus">
+          <div class="noUserFoto valign-wrapper center-align" ng-hide="user.fotoPerfilUrl">
+            <h1 class="center-align valign white-text" style="width: 100%">{{user.primerNombre.charAt(0)}}{{user.apellidos.charAt(0)}}</h1>
+          </div>
+          <div class="tipo" ng-class="user.estatus" ng-show="user.tipo">
+            <i class="material-icons center-align" >{{user.tipo}}</i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row myRow miGris1">
+      <div class="presentacion container">
+        <p class="center-align" ng-show="user.primerNombre">{{user.primerNombre.toUpperCase()}} {{user.segundoNombre.toUpperCase()}} {{user.apellidos.toUpperCase()}}</p>
+        <p class="center-align">{{user.descripcion}}</p>
+      </div>
+    </div>
+    <div class="row myRow miGris2">
+      <div class="container">
+        <p class="center-align">{{user.puesto}} de {{user.empresa}}</p>
+      </div>
+    </div>
+    <div class="row myRow miGris2">
+      <div class="col l4 seguidores">
+        <h4 class="center-align">{{user.seguidores.length}}</h4>
+        <p class="center-align">le siguen</p>
+      </div>
+      <div class="col l4 seguidores">
+        <h4 class="center-align">{{user.siguiendo.length}}</h4>
+        <p class="center-align">siguiendo</p>
+      </div>
+      <div class="col l4 seguidores">
+        <h4 class="center-align">{{user.publicaciones.length}}</h4>
+        <p class="center-align">publicaciones</p>
+      </div>
+    </div>
+    <div class="row myRow black">
+      asdf
+    </div>
+    <div class="row myRow miGris1">
+      <div class="container" style="padding-top:20px; padding-bottom: 20px;">
+        <a ng-repeat="red in user.redes" class="btn-floating white" style="margin-right: 15px;"  ng-click="redClick(red.valor)"><i ng-class="red.icono" class="black-text"></i></a> 
+      </div>
+      <table class="bordered">
+        <thead>
+          <tr>
+              <th data-field="id">Contacto</th>
+              <th data-field="name"></th>
+              <th data-field="price"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="row in user.contacto">
+            <td><i ng-class="row.icono" class="fa-2x"></i></td>
+            <td>{{row.valor}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row">
+      <div style="margin-top:30px;">
+
+      </div>
+    </div>
+  </div>
+  <div id="blog" class="col s12">Blog</div>

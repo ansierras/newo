@@ -1,0 +1,132 @@
+<div class="row perfil-cont">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3"><a href="#perfil">Perfil qe</a></li>
+      <li class="tab col s3"><a href="#blog">Blog</a></li>
+    </ul>
+  </div>
+  <div id="perfil" class="col s12 scrollCont">
+    <div class="row myRow" style="position:relative">
+      <div class="actions" style="top:5%; position:absolute; left:90%;">
+        <a class="btn-floating waves-effect waves-light grey darken-4" ui-sref="home.editperfil"  ng-show="miPerfil"><i class="material-icons">mode_edit</i></a>
+        <a class="btn-floating waves-effect waves-light grey darken-4" ng-show="miPerfil && user.solicitudes.length>=1"><i class="material-icons" ng-click="mostrarNotificaciones()">notifications_none</i></a>
+      </div>
+      <div class="cover-img-cont2" ng-style="{'background-image': 'url(' + user.fotoCoverUrl + ')'}">
+        <div class="row" style="position:relative">
+          <div class=" perfil-img2 center-align">
+            <img ng-src="{{user.fotoPerfilUrl}}" ng-show="user.fotoPerfilUrl" class="circle profImg" ng-class="user.estatus">
+            <div class="noUserFoto valign-wrapper center-align" ng-hide="user.fotoPerfilUrl">
+              <h1 class="center-align valign white-text" style="width: 100%">{{user.primerNombre.charAt(0)}}{{user.apellidos.charAt(0)}}</h1>
+            </div>
+            <div class="tipo black-text valign-wrapper " ng-class="user.estatus">
+              <i ng-class="tipo" class="fa-lg valign"></i>
+            </div>
+          </div>
+        </div>
+        <div class="presentacion" style="color:white">
+          <div class="container">
+            <p class="center-align" ng-show="user.primerNombre">{{user.primerNombre.toUpperCase()}} {{user.segundoNombre.toUpperCase()}} {{user.apellidos.toUpperCase()}}</p>
+            <p class="center-align">{{user.descripcion}}</p>
+          </div>
+        </div> 
+      </div>
+    </div>
+    <div class="row myRow miGris2">
+      <div class="container">
+        <p class="center-align">{{user.puesto}} de {{user.empresa}}</p>
+      </div>
+    </div>
+    <div class="row myRow miGris2">
+      <div class="col l4 seguidores">
+        <h4 class="center-align">{{user.conexiones.length}}</h4>
+        <h4 class="center-align" ng-hide="user.conexiones">0</h4>
+        <p class="center-align">Conexiones</p>
+      </div>
+      <div class="col l4 seguidores">
+        <h4 class="center-align">{{user.trofeos.length}}</h4>
+        <h4 class="center-align" ng-hide="user.trofeos">0</h4>
+        <p class="center-align">Trofeos</p>
+      </div>
+      <div class="col l4 seguidores">
+        <h4 class="center-align">{{user.publicaciones.length}}</h4>
+        <h4 class="center-align" ng-hide="user.publicaciones">0</h4>
+        <p class="center-align">Publicaciones</p>
+      </div>
+    </div>
+    <div class="row myRow black" ng-hide="miPerfil">
+      <div class="col l6">
+        <a class="btn-flat waves-effect waves-teal center-align" style="width: 100%; color:white" ng-click="conectar()" ng-hide="solicitudEnviada || conexionHecha">Conectar</a>
+        <a class="btn-flat waves-effect waves-teal center-align" style="width: 100%; color:white" ng-show="solicitudEnviada && !conexionHecha">Solicitud Enviada</a>
+        <a class="btn-flat waves-effect waves-teal center-align" style="width: 100%; color:white" ng-click="romperConexion()" ng-show="conexionHecha">Eliminar Conexión</a>
+      </div>
+      <div class="col l6">
+        <a class="btn-flat waves-effect waves-teal center-align" style="width: 100%; color:white" ng-click="mensajeInput = !mensajeInput">Enviar Mensaje</a>
+      </div>
+    </div>
+    <div class="row valign-wrapper" ng-show="mensajeInput">
+        <div class="input-field col l9 valign">
+          <input id="mensaje" type="text" ng-model="mensaje">
+          <label for="mensaje">Escribe aquí tu mensaje</label>
+        </div>
+        <div class="col l3 valign">
+          <a class="btn waves-effect waves-white" ng-click="enviarMensaje()"> Enviar</a>
+        </div>
+    </div>
+    <div class="row myRow miGris1">
+      <div class="container" style="padding-top:20px; padding-bottom: 20px;">
+        <a ng-repeat="red in user.redes" class="btn-floating white" style="margin-right: 15px;"  ng-click="redClick(red.valor)"><i ng-class="red.icono" class="black-text"></i></a> 
+      </div>
+      <table class="bordered">
+        <thead>
+          <tr>
+              <th data-field="id">Contacto</th>
+              <th data-field="name"></th>
+              <th data-field="price"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="row in user.contacto">
+            <td><i ng-class="row.icono" class="fa-2x"></i></td>
+            <td>{{row.valor}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="blog" class="col s12">Blog</div>
+</div>
+<!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Notificaciones</h4>
+      <h4>Solicitudes de conexión</h4>
+      <div class="divider"></div>
+        <div class="col s12 m9 l8 offset-l1 usuarioCont z-depth-1" ng-repeat="solicitud in solicitudes">
+        <div class="row valign-wrapper" style="margin-bottom:10px; margin-top:10px">
+          <div class="col l3 valign-wrapper">
+            <img ng-src="{{solicitud.fotoPerfilUrl}}" style="width:100%" class="circle valign" ng-class="solicitud.estatus" ng-show="solicitud.fotoPerfilUrl">
+            <div id="generic" class="genericPic valign-wrapper center-align" ng-hide="solicitud.fotoPerfilUrl">
+              <h2 class="center-align valign white-text" style="width: 100%">{{solicitud.primerNombre.charAt(0).toUpperCase()}}{{solicitud.apellidos.charAt(0).toUpperCase()}}</h2>
+            </div>
+          </div>
+          <div class="col l7">
+            <p>{{solicitud.primerNombre}} {{solicitud.segundoNombre}} {{solicitud.apellidos}}</p>
+            <p>{{solicitud.empresa}}</p>
+          </div>
+          <div class="col l2 valign iconoTipo">
+            <i ng-class="listaTipos[solicitud.tipo]" class="fa-lg center-align"></i>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 0px">
+          <div class="progress" style="margin-bottom: 0px">
+            <div class="determinate" style="width: {{solicitud.compatRating}}%;"></div>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 0px">
+          <a class="btn-flat waves-effect waves-green">ver perfil</a>
+          <a class="btn-flat waves-effect waves-green" ng-click="aceptarSolicitud(solicitud)">aceptar</a>
+        </div>
+      </div>
+    </div>
+  </div>

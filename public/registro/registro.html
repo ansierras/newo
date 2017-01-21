@@ -1,0 +1,38 @@
+
+<div class="container myGenContainer ">
+	<div class="row">
+		<div class="col m6 l6 loginIzq valign-wrapper">
+			<h2 class="valign white-text" style="width:20px;">NEW HORIZONS registro</h2>	
+		</div>
+		<div class="col m6 l6 loginDer z-depth-4">
+			
+				<form class="col s12" name="registerForm">
+				  	<div class="row">
+				  		<div class="input-field col l6">
+							<input name="nombre" type="text" class="validate" ng-model="newuser.nombre" autocomplete="off" required />
+							<label for="nombre">Nombre</label>
+						</div>
+						<div class="input-field col l6">
+							<input name="apellidos" type="text" class="validate" ng-model="newuser.apellidos" autocomplete="off" required />
+							<label for="apellidos">Apellidos</label>
+						</div>
+				  	</div>
+					<div class="row">
+						<div class="input-field col l12">
+							<input name="email" type="email" class="validate" ng-model="newuser.email" autocomplete="off" required />
+							<label for="email">Email</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col l12">
+							<input id="password" type="password" class="validate" ng-model="newuser.password" autocomplete="off" ng-minlength="8" required/>
+							<label for="password">Password</label>
+						</div>
+					</div>
+					<a class="waves-effect waves-teal btn-flat myLoginButton white-text center"ng-click="registrar()">Registrarme</a>
+					<a class="waves-effect waves-teal btn-flat white-text right-align" ui-sref="login"  style="margin-top:20px;">ya tengo una cuenta</a>
+				</form>
+			<img src="assets/logo-blanco.png" class="logoImgBttm">
+		</div>
+	</div>
+</div>

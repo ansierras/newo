@@ -1,0 +1,30 @@
+<div class="row perfil-cont">
+<div id="perfil" class="col s12 scrollCont">
+	<div class="row" >
+		<div class="cover-img-cont2" ng-style="{'background-image': 'url(' + lugar.imagen + ')'}">
+			<!--Import font awesome icons 
+			<div class="presentacion" style="color:white">
+			  <div class="container">
+			    <p class="left-align" ng-show="lugar.nombre">{{lugar.nombre.toUpperCase()}} </p>
+			  </div>
+			</div> 
+			-->
+		</div>
+	</div>
+	<div class="row" style="position:relative; top: -20px">
+		<div class="perfil-img-host">
+		    <img ng-src="{{host.fotoPerfilUrl}}" class="circle profImg" ng-class="host.estatus">
+		</div>
+		<div class="col l6">
+		<p class="center-align">{{lugar.nombre.toUpperCase()}}</p>
+		</div>
+		<div class="col l6">
+		<p class="center-align">{{lugar.direccion}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<p class="center-align">Hosted By</p>
+		<p class="center-align">{{host.primerNombre}}{{host.apellidos}}</p>
+	</div>
+</div>
+</div>

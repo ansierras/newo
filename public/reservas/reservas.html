@@ -1,0 +1,34 @@
+<div class="row perfil-cont">
+	<div class="col s12 miGris2">
+		<ul class="tabs">
+			<li class="tab col s3"><a href="#fecha">Por Fecha</a></li>
+			<li class="tab col s3"><a href="#lugar">Por Lugar</a></li>
+		</ul>
+	</div>
+	<div id="fecha" class="col s12 scrollCont">
+		<p>¿Para cuándo deseas reservar tu sala?</p>
+		<div>
+		<input type="date" class="datepicker" ng-model="date" ng-change="console.log('change')">
+		</div>
+		<ng-show ng-show="disponible">
+			<div class="card">
+			            <div class="card-image">
+			              <img src="assets/cover-generic.png">
+			              <span class="card-title">Card Title</span>
+			            </div>
+			            <div class="card-content">
+			              <p>I am a very simple card. I am good at containing small bits of information.
+			              I am convenient because I require little markup to use effectively.</p>
+			            </div>
+			            <div class="card-action">
+			              <a href="#">This is a link</a>
+			            </div>
+			          </div>
+			<a class="btn waves-effect waves-teal" ng-click="reservar()" >reservar</a>
+		</ng-show>
+		
+	</div>
+	<div id="lugar" class="col s12 scrollCont">
+
+	</div>
+</div>

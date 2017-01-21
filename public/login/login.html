@@ -1,0 +1,28 @@
+
+<div class="container myGenContainer ">
+	<div class="row">
+		<div class="col m6 l6 loginIzq valign-wrapper">
+			<h2 class="valign white-text" style="width:20px;">NEW HORIZONS</h2>	
+		</div>
+		<div class="col m6 l6 loginDer z-depth-4">
+			
+				<form class="col s12" name="loginForm">
+				  <div class="row">
+				    <div class="input-field col s12">
+				      <input name="email" type="email" class="validate" ng-model="user.email" required />
+				      <label for="email">Email</label>
+				    </div>
+				  </div>
+				  <div class="row">
+				    <div class="input-field col s12">
+				      <input id="password" type="password" class="validate" ng-model="user.password" />
+				      <label for="password">Password</label>
+				    </div>
+				  </div>
+				  <a class="waves-effect waves-teal btn-flat myLoginButton white-text center" ui-sref="home" ng-click="logIn()">Entrar</a>
+				  <a class="waves-effect waves-teal btn-flat white-text right-align" ui-sref="registro" style="margin-top:20px;">Crear una cuenta nueva</a>
+				</form>
+			<img src="assets/logo-blanco.png" class="logoImgBttm">
+		</div>
+	</div>
+</div>

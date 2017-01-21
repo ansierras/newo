@@ -1,0 +1,107 @@
+<div class="row perfil-cont">
+  <div class="row">
+    <div class="col s12" style="position:relative">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#personal">Editar</a></li>
+      </ul>
+      <a class="btn-floating waves-effect waves-light grey darken-4" ng-click="guardarCambios()" style="top:50px; position:absolute; left:90%;" ng-hide="subiendoFotos"><i class="material-icons">save</i></a>
+    </div>
+    <div id="personal" class="col s12 scrollCont">
+      <h4>Información Personal</h4>
+      <div class="divider"></div>
+      <div class="row formSeccion valign-wrapper"> 
+        <div class=" input-field col m4">
+          <div class="noUserFoto valign-wrapper" ng-hide="fotoPerfil || user.fotoPerfilUrl">
+            <h1 class="center-align valign white-text" style="width: 100%">AS</h1>
+          </div>
+          <div class="col l12" ng-hide="!user.fotoPerfilUrl || fotoPerfil">
+            <img ng-src="{{user.fotoPerfilUrl}}" style="width:100%" class="circle">
+          </div>
+          <div id="mediaHere" ng-show="fotoPerfil"></div>
+          <media-preview preview-container="mediaHere" preview-class="circle" model="fotoPerfil"></media-preview>
+        </div> 
+        <div class="col m8" style="padding-left: 20px;">
+          <div class="col l12" ng-hide="!user.fotoCoverUrl || fotoCover">
+            <img ng-src="{{user.fotoCoverUrl}}" style="width:100%" >
+          </div>
+          <div id="mediaHere2" class="previewCoverCont"></div>
+          <media-preview preview-container="mediaHere2" model="fotoCover"></media-preview>
+        </div>
+      </div>
+      <div class="row formSeccion">
+        <div class="input-field col s6">
+          <input id="primer_nombre" type="text" class="validate" ng-model="user.primerNombre">
+          <label for="primer_nombre">Primer Nombre</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="segundo_nombre" type="text" class="validate" ng-model="user.segundoNombre">
+          <label for="segundo_nombre">Segundo Nombre</label>
+        </div>
+      </div>
+      <div class="row formSeccion">
+        <div class="input-field col s6">
+          <input id="apellidos" type="text" class="validate" ng-model="user.apellidos">
+          <label for="apellidos">Apellidos</label>
+        </div>
+        <div class="input-field col s6">
+          <select id="sexo">
+            <option value="" disabled selected>Sexo</option>
+            <option value="1">Mujer</option>
+            <option value="2">Hombre</option>
+            <option value="3">Prefiero no especificar</option>
+          </select>
+        </div>
+      </div>
+      <div class="row formSeccion">
+        <div class="input-field col s12">
+          <textarea id="descripcion" class="materialize-textarea" ng-model="user.descripcion"></textarea>
+          <label for="descripcion">Descripción</label>
+        </div>
+      </div>
+      <h4>Información de Contacto</h4>
+      <div class="divider"></div>
+      <div class="row formSeccion">
+        <div class="input-field col s6">
+          <input id="puesto" type="text" class="validate" ng-model="user.puesto">
+          <label for="puesto">Puesto</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="empresa" type="text" class="validate" ng-model="user.empresa">
+          <label for="empresa">Empresa</label>
+        </div>
+      </div>
+      <div class="row formSeccion">
+        <table class="centered">
+        <tbody>
+          <tr ng-repeat = "campo in contacto">
+            <td><i ng-class="campo.icono" class="fa-2x"></i></td>
+            <td>
+              <div class="input-field col l12">
+                <input id="{{$index}}" type="text" class="validate" ng-model="campo.valor">
+                <label for="{{$index}}">{{campo.nombre}}</label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+      <h4>Información de Redes</h4>
+      <div class="divider"></div>
+      <div class="row formSeccion">
+        <table class="centered">
+          <tbody>
+            <tr ng-repeat = "red in redes">
+              <td><i ng-class="red.icono" class="fa-2x"></i></td>
+              <td>
+                <div class="input-field col l12">
+                  <input id="{{$index}}" type="text" class="validate" ng-model="red.valor">
+                  <label for="{{$index}}">{{red.nombre}}</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> 
+  </div>
+</div>

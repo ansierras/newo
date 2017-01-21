@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="container ">
+        <img src="assets/logo-blanco.png" class="menuImage  center-align">
+        </img>
+    </div>
+     <a ng-click="menuClick(0,'home')" class="waves-effect waves-teal btn-flat white-text myMenuButton" ng-class="$root.selecciones[0]"><i class="material-icons left">person_outline</i> inicio</a>
+     <a ui-sref="inbox" class="waves-effect waves-teal btn-flat white-text myMenuButton" ng-class="$root.selecciones[1]"><i class="material-icons left">mail_outline</i> mensajes</a>
+     <a ng-click="menuClick(2,'newo')" class="waves-effect waves-teal btn-flat white-text myMenuButton" ng-class="$root.selecciones[2]"><i class="material-icons left">people_outline</i> comunidad</a>
+     <a ng-click="menuClick(1,'inbox')" class="waves-effect waves-teal btn-flat white-text myMenuButton" ng-class="$root.selecciones[3]"><i class="material-icons left">redeem</i> aliados</a>
+     <a ng-click="menuClick(4,'reservas')" class="waves-effect waves-teal btn-flat white-text myMenuButton" ng-class="$root.selecciones[4]"><i class="material-icons left">event</i>reservas</a>
+     <a ng-click="logOut()" class="waves-effect waves-teal btn-flat white-text myMenuButton"><i class="material-icons left">power_settings_new</i> Cerrar sesión</a>
+</div>

@@ -1,0 +1,25 @@
+<div class="row perfil-cont">
+	<div class="col s12 miGris2">
+		<ul class="tabs">
+			<li class="tab col s3"><a href="#lugares">LUGARES</a></li>
+		</ul>
+	</div>
+	<div id="lugares" class="col s12 scrollCont">
+		<div class="" ng-repeat="lugar in listaLugares">
+			<div class="col l6">
+				<div class="card">
+				<div class="card-image">
+					<img ng-src="{{lugar.imagen}}">
+					<span class="card-title">{{lugar.nombre}}</span>
+				</div>
+				<div class="card-content">
+					<p>{{lugar.descripcion}}</p>
+				</div>
+				<div class="card-action">
+					<a href="" ng-click="goToLugar(lugar.$id)">Reservar</a>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
