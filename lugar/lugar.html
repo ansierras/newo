@@ -1,30 +1,87 @@
 <div class="row perfil-cont">
-<div id="perfil" class="col s12 scrollCont">
-	<div class="row" >
-		<div class="cover-img-cont2" ng-style="{'background-image': 'url(' + lugar.imagen + ')'}">
-			<!--Import font awesome icons 
-			<div class="presentacion" style="color:white">
-			  <div class="container">
-			    <p class="left-align" ng-show="lugar.nombre">{{lugar.nombre.toUpperCase()}} </p>
-			  </div>
-			</div> 
-			-->
+	<div id="perfil" class="col s12 scrollCont">
+		<div class="row" >
+			<div class="cover-img-cont2" ng-style="{'background-image': 'url(' + lugar.imagen + ')'}">
+				<div class="presentacion" style="color:white">
+				  
+				  	<div class="col m6">
+				  		<p class="center-align" ng-show="lugar.nombre">{{lugar.nombre.toUpperCase()}} </p>
+				  	</div>
+				    <div class="col m6">
+				  		<p class="center-align">{{lugar.direccion}} </p>
+				  	</div>
+				</div> 
+			</div>
 		</div>
-	</div>
-	<div class="row" style="position:relative; top: -20px">
-		<div class="perfil-img-host">
-		    <img ng-src="{{host.fotoPerfilUrl}}" class="circle profImg" ng-class="host.estatus">
+		<div class="row" style="position:relative; top: -20px">
+			<div class="perfil-img-host">
+			    <img ng-src="{{host.fotoPerfilUrl}}" class="circle profImg" ng-class="host.estatus">
+			</div>
+			<div class="col l6">
+				<div class="col l6">
+					<p class="center-align">Usuarios Aquí</p>
+					<p class="center-align">{{lugar.usuarios.length}}</p>
+				</div>
+				<div class="col l6">
+					<p class="center-align">Salas</p>
+					<p class="center-align">{{lugar.salas.length}}</p>
+				</div>
+			</div>
+			<div class="col l6">
+				<p class="center-align">Hosted By {{host.primerNombre}} {{host.apellidos}}</p>
+			</div>
 		</div>
-		<div class="col l6">
-		<p class="center-align">{{lugar.nombre.toUpperCase()}}</p>
+		<div class="row" style="position:relative; top: -20px">
+			<div class="container">
+				<div class="section">
+				    <h5>Servicios</h5>
+				</div>
+				<div class="divider"></div>
+				<div class="chip" ng-repeat="servicio in lugar.servicios">{{servicio}}</div>
+				<div class="section">
+				    <h5>Reservas</h5>
+				</div>
+				<div class="divider"></div>
+				<table class="highlight">
+					<thead>
+						<tr>
+							<th data-field="id">Nombre</th>
+							<th data-field="name">Capacidad</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="sala in lugar.salas">
+							<td>{{sala.nombre}}</td>
+							<td>{{sala.capacidad}}</td>
+							<td><a class="waves-effect waves-teal btn-flat" ng-click="openModal(sala.nombre)">Reservar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
-		<div class="col l6">
-		<p class="center-align">{{lugar.direccion}}</p>
-		</div>
-	</div>
-	<div class="row">
-		<p class="center-align">Hosted By</p>
-		<p class="center-align">{{host.primerNombre}}{{host.apellidos}}</p>
 	</div>
 </div>
+<div id="modal1" class="modal">
+	<div class="modal-content">
+		<div class="row">
+			<h4>Reservar Sala</h4>
+			<p>nombre de la sala: {{selectedSala}}</p>
+		</div>
+		<div class="row">
+			<div class="col l6">
+				<p>Para cuándo la necesitas?</p>
+			</div>
+			<div class="col l6">
+				<input type="date" class="datepicker" ng-model="fechaElegida">
+			</div>
+		</div>
+		<div class="row">
+			<p class="range-field">
+				<div id="test5"></div>
+			</p>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="waves-effect waves-green btn-flat" ng-click="pedirReserva()">Reservar</a>
+	</div>
 </div>
